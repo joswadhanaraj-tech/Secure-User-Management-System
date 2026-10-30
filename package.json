@@ -1,0 +1,20 @@
+{
+  "name": "grow-higher-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "start-api": "powershell -NoProfile -ExecutionPolicy Bypass -Command \".\\.venv\\Scripts\\Activate.ps1; python -m uvicorn main:app --host 127.0.0.1 --port 8000\"",
+    "start-web": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"cd frontend; npm run dev\"",
+    "start": "concurrently -k -n api,web -c \"bgBlue.bold,bgGreen.bold\" \"npm run start-api\" \"npm run start-web\""
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
+    "concurrently": "^9.2.1",
+    "vite": "^4.3.9"
+  }
+}
